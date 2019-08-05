@@ -8,7 +8,7 @@ services:
     restart: always
   unpub:
     container_name: unpub
-    image: unpub 
+    image: trevorwang/unpub 
     restart: always
     volumes:
       - .:/app

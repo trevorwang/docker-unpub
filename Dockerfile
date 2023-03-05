@@ -1,6 +1,6 @@
 FROM dart
 WORKDIR /app
-RUN pub global activate unpub
+RUN dart pub global activate unpub
 ENV PATH="$PATH:/root/.pub-cache/bin"
 EXPOSE 4000
 ADD entrypoint.sh /app

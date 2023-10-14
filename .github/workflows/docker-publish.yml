@@ -34,7 +34,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -57,5 +57,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            trevorwang/unpub:latest
-            trevorwang/unpub:master
+            trevorwang/docker-unpub:latest

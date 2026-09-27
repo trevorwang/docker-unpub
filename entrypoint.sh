@@ -8,6 +8,7 @@ if [ -f /app/main.dart ]; then
   fi
 
   cd /app
+  mkdir -p /app/.dart_tool
   checksum_file=/app/.dart_tool/docker-unpub-deps.cksum
   current_checksums="$(
     cksum /app/pubspec.yaml

@@ -41,7 +41,7 @@ Example `pubspec.yaml`:
 ```yaml
 name: custom_unpub
 environment:
-  sdk: ">=2.12.0 <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   mongo_dart: any

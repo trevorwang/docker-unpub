@@ -20,8 +20,6 @@ services:
       - .:/app
     ports:
       - 4000:4000
-    links:
-        - mongodb
     depends_on:
         - mongodb
     environment:
@@ -88,8 +86,6 @@ services:
       - ./custom-server:/app
     ports:
       - 4000:4000
-    links:
-      - mongodb
     depends_on:
       - mongodb
     environment:

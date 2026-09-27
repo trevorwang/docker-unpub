@@ -15,7 +15,7 @@ if [ -f /app/main.dart ]; then
     [ /app/pubspec.lock -nt /app/.dart_tool/package_config.json ]; then
     dart pub get
   fi
-  exec dart run /app/main.dart
+  exec dart run main.dart
 fi
 
 exec unpub -d "${DB_URL}"

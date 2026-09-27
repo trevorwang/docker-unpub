@@ -48,6 +48,10 @@ dependencies:
 
 Example `main.dart`:
 
+This example is intentionally minimal. If you need the same authentication or
+upload behavior as the default `unpub` CLI startup, configure the equivalent
+options in your Dart app as well.
+
 ```dart
 import 'dart:io';
 

@@ -8,7 +8,9 @@ if [ -f /app/main.dart ]; then
   fi
 
   cd /app
-  dart pub get
+  if [ ! -f /app/.dart_tool/package_config.json ] || [ ! -f /app/pubspec.lock ]; then
+    dart pub get
+  fi
   exec dart run /app/main.dart
 fi
 

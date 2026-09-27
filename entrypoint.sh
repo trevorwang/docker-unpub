@@ -17,9 +17,7 @@ if [ -f /app/main.dart ]; then
     fi
   )"
   cached_checksums="$(cat "$checksum_file" 2>/dev/null || true)"
-
   if [ ! -f /app/.dart_tool/package_config.json ] || \
-    [ ! -f /app/pubspec.lock ] || \
     [ "$current_checksums" != "$cached_checksums" ]; then
     dart pub get
     current_checksums="$(

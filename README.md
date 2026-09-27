@@ -32,9 +32,9 @@ services:
 
 If `/app/main.dart` exists, the container will run it instead of the default
 `unpub -d $DB_URL` command. Because custom Dart code needs its own
-dependencies, mount both `main.dart` and `pubspec.yaml` into `/app`. The
-mounted `/app` directory must also be writable so the container can run
-`dart pub get` and cache dependency metadata in `.dart_tool`.
+dependencies, mount both `main.dart` and `pubspec.yaml` into `/app`. If
+dependencies need to be resolved or refreshed, `/app` must also be writable so
+the container can run `dart pub get` and update `.dart_tool`.
 
 Example `pubspec.yaml`:
 

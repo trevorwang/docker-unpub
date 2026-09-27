@@ -8,12 +8,14 @@ if [ -f /app/main.dart ]; then
   fi
 
   cd /app
-  mkdir -p /app/.dart_tool
-  checksum_file=/app/.dart_tool/docker-unpub-deps.cksum
+  checksum_dir=/tmp/docker-unpub
+  checksum_file="$checksum_dir/deps.cksum"
   current_checksums="$(
     cksum /app/pubspec.yaml
     if [ -f /app/pubspec.lock ]; then
       cksum /app/pubspec.lock
+    else
+      printf '%s\n' 'pubspec.lock:missing'
     fi
   )"
   cached_checksums=''
@@ -24,10 +26,13 @@ if [ -f /app/main.dart ]; then
   if [ ! -f /app/.dart_tool/package_config.json ] || \
     [ "$current_checksums" != "$cached_checksums" ]; then
     dart pub get
+    mkdir -p "$checksum_dir"
     current_checksums="$(
       cksum /app/pubspec.yaml
       if [ -f /app/pubspec.lock ]; then
         cksum /app/pubspec.lock
+      else
+        printf '%s\n' 'pubspec.lock:missing'
       fi
     )"
     printf '%s\n' "$current_checksums" > "$checksum_file"

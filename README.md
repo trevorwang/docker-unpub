@@ -51,11 +51,13 @@ dependencies:
 Example `main.dart`:
 
 ```dart
+import 'dart:io';
+
 import 'package:mongo_dart/mongo_dart.dart';
 import 'package:unpub/unpub.dart' as unpub;
 
 Future<void> main(List<String> args) async {
-  final db = Db('mongodb://mongodb:27017/dart_pub');
+  final db = Db(Platform.environment['DB_URL']!);
   await db.open();
 
   final app = unpub.App(
@@ -91,5 +93,6 @@ services:
     depends_on:
       - mongodb
     environment:
+      DB_URL: mongodb://mongodb:27017/dart_pub
       WAIT_HOSTS: mongodb:27017
 ```
